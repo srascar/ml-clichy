@@ -1,0 +1,36 @@
+{
+    "name": "ml-clichy",
+    "description": "Repository of http://mlclichy.org/",
+
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/core",
+                "version": "4.4",
+                "source": {"type": "svn", "url": "http://core.svn.wordpress.org", "reference": "tags/4.4"},
+                "require": {
+                    "composer/installers": "~1.0"
+                },
+                "type": "wordpress-plugin"
+            }
+        }
+    ],
+
+    "require": {
+        "wordpress/core": "*"
+    },
+
+    "config": {
+        "process-timeout": 900
+    },
+
+    "extra": {
+        "installer-paths": {
+            "html/{$name}/": ["wordpress/core"],
+            "html/wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
+        }
+    },
+
+    "minimum-stability": "stable"
+}
